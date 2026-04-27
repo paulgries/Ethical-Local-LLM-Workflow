@@ -29,6 +29,25 @@ Using Microsoft Copilot, I translated it into a set of agents for my own use. Se
 
 # Installation
 
+## Quick setup: Homebrew, Ollama, and StarCoder2
+
+```
+# Homebrew
+bash/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Ollama
+brew install ollama
+brew services start ollama
+ollama pull starcoder2:15b-instruct
+
+# Test
+ollama run starcoder2:15b-instruct "Write a Python function that returns hello world"
+
+# Visual Studio Continue extension
+code --install-extension Continue.continue
+```
+
+
 ## 1. Install Homebrew (Package Manager)
 Homebrew makes it easy to install and manage command-line tools. If you already have Homebrew, skip to step 2.
 
@@ -36,7 +55,7 @@ Homebrew makes it easy to install and manage command-line tools. If you already 
 
 After installation, verify it worked:
 
-```bashbrew --version```
+```brew --version```
 
 ## 2. Install Ollama
 
