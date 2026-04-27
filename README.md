@@ -26,3 +26,73 @@ Here is David's workflow, copied and pasted from that article:
 8) Ship: 9 tests to verify before it goes live. Automated checks passed.
 
 Using Microsoft Copilot, I translated it into a set of agents for my own use. See AGENTS.md. This file will evolve as I tune the agents.
+
+# Installation
+
+## 1. Install Homebrew (Package Manager)
+Homebrew makes it easy to install and manage command-line tools. If you already have Homebrew, skip to step 2.
+
+```bash/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+
+After installation, verify it worked:
+
+```bashbrew --version```
+
+## 2. Install Ollama
+
+Ollama is the runtime that lets you run large language models locally on your machine.
+
+```brew install ollama```
+
+Start the Ollama service:
+
+```brew services start ollama```
+
+Verify Ollama is running (from another terminal):
+
+```ollama --version```
+
+## 3. Pull the StarCoder2-15B-Instruct Model
+
+Now you'll download the StarCoder2 model to your local machine. This is a one-time process that may take 10-30 minutes depending on your internet speed (the model is ~9GB).
+
+```ollama pull starcoder2:15b-instruct```
+
+Once complete, verify the model is installed:
+
+```ollama list```
+
+You should see `starcoder2:15b-instruct` in the list.
+
+Test the model locally:
+
+```ollama run starcoder2:15b-instruct "Write a Python function that returns hello world"```
+
+## 4. Install the Continue VS Code Extension
+
+Continue is an open-source AI code assistant that integrates directly into VS Code. It will use your local Ollama model.
+
+1. Open VS Code
+2. Click the Extensions icon (left sidebar, looks like 4 squares)
+3. Search for "Continue"
+4. Click the blue "Install" button for the "Continue" extension by Continue.dev
+5. Reload VS Code when prompted
+
+## Useful commands
+
+```
+# Check if Ollama is running
+brew services list
+
+# View all installed models
+ollama list
+
+# Run the model interactively
+ollama run starcoder2:15b-instruct
+
+# Stop Ollama
+brew services stop ollama
+
+# Restart Ollama (fixes most issues)
+brew services restart ollama
+```
