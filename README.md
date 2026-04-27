@@ -1,7 +1,7 @@
 # Ethical-Local-LLM-Workflow
 A journey: learning agentic LLM workflows
 
-My goal is to experiment with local development with an eye toward both the environment and ethics. I own an M1 Max MacBook Pro with 32GB memory.
+My goal is to experiment with local development with an eye toward both the environment and ethics. I own an M1 Max MacBook Pro with 32GB memory, which makes running local models more efficient than using a cloud LLM provider.
 
 I chose [StarCoder2-15B-Instruct](https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1), which is trained on license-filtered open source code (The Stack v2), with documented exclusions and opt out mechanisms. In addition to having far fewer ethical issues than the major cloud LLMs, using it locally avoids many IP risks.
 
